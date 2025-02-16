@@ -33,8 +33,8 @@ Neste servidor web é possivel obter a Lista de Reparações e os detalhes de ca
 5. Aceder às páginas no navegador:
    - [http://localhost:1234/](http://localhost:1234/) → Página principal
    - [http://localhost:1234/reparacoes](http://localhost:1234/reparacoes) → Lista de reparações
- - Para ver o menu de uma reparação é so clicar no número da reparação
+      Para ver o menu de uma reparação é so clicar no número da reparação
    - [http://localhost:1234/intervencoes](http://localhost:1234/intervencoes) → Lista de intervenções
- - Para ver o menu de uma intervenção é so clicar no número da intervenção
+      Para ver o menu de uma intervenção é so clicar no número da intervenção
    - [http://localhost:1234/veiculos](http://localhost:1234/veiculos) → Lista de marcas e modelos 
- - Para ver o menu de uma marca é so clicar no nome da marca
+      Para ver o menu de uma marca é so clicar no nome da marca
