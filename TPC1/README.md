@@ -14,7 +14,7 @@ Este trabalho consiste em criar um servidor web desenvolvido em Node.js para vis
 Neste servidor web é possivel obter a Lista de Reparações e os detalhes de cada uma delas, a Lista das Intervenções e os detalhes de cada uma delas, a Lista dos Veiculos e os detalhes de cada marca e modelo de veiculos. Também é possivel saber quantos veiculos existem de cada marca e modelo.
 
 ## Para executar
-1. Criar o dataset novo de modo a os dados estarem armazenados corretamente (cria o ficheiro reparacpes.json)
+1. Criar o dataset novo de modo a os dados estarem armazenados corretamente (cria o ficheiro reparacoes.json)
    ```sh
    python3 cria_dataset.py
    ```
