@@ -8,13 +8,13 @@ router.get('/', function(req, res) {
 });
 
 /* GET forms editar filme. */
-router.get('/filmes/:title/edit', function(req, res) {
-  let tituloFilme = decodeURIComponent(req.params.title); // Decodificar o título da URL
+router.get('/filmes/:id/edit', function(req, res) {
+  let tituloFilme = decodeURIComponent(req.params.id); // Decodificar o título da URL
   
   axios.get('http://localhost:3000/filmes')
     .then(resp => {
       let filmes = resp.data;
-      let filme = filmes.find(f => f.title.trim() === tituloFilme.trim()); // Garantir que não haja espaços extras
+      let filme = filmes.find(f => f.id.trim() === tituloFilme.trim()); // Garantir que não haja espaços extras
       if (filme) {
         res.render('editarFilme', { filme: filme, tit: "Editar Filme" });
       } else {
@@ -28,12 +28,12 @@ router.get('/filmes/:title/edit', function(req, res) {
 });
 
 /* GET detalhes de um filme */
-router.get('/filmes/:title', function(req, res) {
+router.get('/filmes/:id', function(req, res) {
   axios.get('http://localhost:3000/filmes')
     .then(resp => {
       const filmes = resp.data;  // Lista de filmes
-      const titleParam = decodeURIComponent(req.params.title); // Decodifica espaços e caracteres especiais
-      const filme = filmes.find(f => f.title === titleParam);
+      const titleParam = decodeURIComponent(req.params.id); // Decodifica espaços e caracteres especiais
+      const filme = filmes.find(f => f.id === titleParam);
 
       if (filme) {
         res.render('filme', { filme: filme, tit: "Detalhes do Filme" });
@@ -44,6 +44,21 @@ router.get('/filmes/:title', function(req, res) {
     .catch(error => {
       console.log(error);
       res.render('error', { error: error });
+    });
+});
+
+/* POST para excluir um filme */
+router.post('/filmes/:id/delete', function(req, res) {
+  let tituloFilme = decodeURIComponent(req.params.id); // Decodificar o título da URL
+
+  axios.delete(`http://localhost:3000/filmes/${encodeURIComponent(tituloFilme)}`)
+    .then(resp => {
+      console.log("Filme excluído:", resp.data);
+      res.redirect('/filmes'); // Redireciona para a lista de filmes após a exclusão
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).render("error", { error: error });
     });
 });
 
@@ -76,14 +91,21 @@ router.get('/atores/:nome', function(req, res) {
 });
 
 /* POST editar filme */
-router.post('/filmes/:title/edit', function(req, res) {
-  var result = req.body;
-  let title = req.params.title; // Certifique-se de que o título seja corretamente codificado
+router.post('/filmes/:id/edit', function(req, res) {
+  let id = req.params.id;
+  let result = req.body;
 
-  console.log("Enviando PUT para:", `http://localhost:3000/filmes/${title}`);
+  // Certificar-se de que 'cast' seja uma lista
+  if (typeof result.cast === 'string') {
+    result.cast = result.cast.split(',').map(a => a.trim()); // Converte string separada por vírgulas para array
+  } else if (!Array.isArray(result.cast)) {
+    result.cast = []; // Garante que seja sempre um array
+  }
+
+  console.log("Enviando PUT para:", `http://localhost:3000/filmes/${id}`);
   console.log("Dados enviados:", result);
 
-  axios.put(`http://localhost:3000/filmes/${title}`, result)
+  axios.put(`http://localhost:3000/filmes/${id}`, result)
     .then(resp => {
       console.log("Resposta do backend:", resp.data);
       res.status(201).redirect('/filmes');

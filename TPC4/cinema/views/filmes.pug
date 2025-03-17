@@ -17,7 +17,7 @@ block content
         each f in lfilmes  || []
           tr 
             td= f.year
-            td: a(href=`/filmes/${encodeURIComponent(f.title)}`) #{f.title}
+            td: a(href=`/filmes/${encodeURIComponent(f.id)}`) #{f.id}
             td
               ul.w3-ul 
                 each ator in f.cast 

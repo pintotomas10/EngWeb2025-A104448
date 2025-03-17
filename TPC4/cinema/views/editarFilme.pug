@@ -4,11 +4,11 @@ block content
     .w3-card-4 
         .header.w3-container.w3-light-blue
             h2 Editar Filme
-        form.w3-container(method="POST" action=`/filmes/${encodeURIComponent(filme.title)}/edit`)  
+        form.w3-container(method="POST" action=`/filmes/${encodeURIComponent(filme.id)}/edit`)  
             fieldset
                 legend Informações do Filme
                 label Título
-                input.w3-input.w3-round(type="text" name="title" value=filme.title)
+                input.w3-input.w3-round(type="text" name="title" value=filme.id readonly)
 
                 label Ano
                 input.w3-input.w3-round(type="number" name="year" value=filme.year)
@@ -17,19 +17,21 @@ block content
                 legend Elenco
                 each ator in filme.cast
                     label
-                        input(type="checkbox" name="cast[]" value=ator checked)
+                        input(type="checkbox" name="cast" value=ator checked)
                         |  #{ator}
+                        br
                 label Novo Ator (separados por vírgula)
-                input.w3-input.w3-round(type="text" name="novo_cast" placeholder="Adicionar novos atores")
+                input.w3-input.w3-round(type="text" name="cast" placeholder="Adicionar novos atores")
 
             fieldset
                 legend Géneros
                 each genero in filme.genres
                     label
-                        input(type="checkbox" name="genres[]" value=genero checked)
+                        input(type="checkbox" name="genres" value=genero checked)
                         |  #{genero}
+                        br
                 label Novo Gênero (separados por vírgula)
-                input.w3-input.w3-round(type="text" name="novo_genero" placeholder="Adicionar novos gêneros")
+                input.w3-input.w3-round(type="text" name="genres" placeholder="Adicionar novos gêneros")
 
             br
             button.w3-btn.w3-blue.w3-mb-2(type="submit") Salvar Alterações
