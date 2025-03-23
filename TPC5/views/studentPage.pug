@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-light-blue 
+            h1
+                span Nome: #{aluno.nome} 
+        .w3-container
+             ul.w3-ul.w3-card-4
+                li
+                    b ID: 
+                    | #{aluno._id}
+                li
+                    b Nome: 
+                    | #{aluno.nome}
+                li
+                    b GitLink: 
+                    | #{aluno.gitlink}
+    
+        .w3-container.w3-margin-8   
+              ul.w3-ul
+                  - for (let i = 1; i < 9; i++) {
+                    - let key = 'tpc' + i
+                    - if (aluno[key]) {
+                      li 
+                        b TPC#{i}
+                    - }
+                  - }
+
+              span
+                    a(href="/alunos/edit/" + aluno._id class="w3-button w3-green w3-round w3-margin-top w3-margin-bottom" style="width:100px") Editar
+              
+              span
+              span 
+                    a(href="/alunos/delete/" + aluno._id class="w3-button w3-red w3-round w3-margin-top w3-margin-bottom" style="width:100px") Eliminar
+              span            
+                    a(href='/alunos' class="w3-button w3-light-blue w3-round w3-margin-top w3-margin-bottom" style="width:100px") Voltar
+              span
+                     

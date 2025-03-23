@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-light-blue
+            h1 Eliminar aluno
+
+        p Tem certeza que pretende eliminar o aluno: #{aluno._id}?
+
+        form(method='POST')
+            span 
+                button.w3-btn.w3-blue.w3-mb-2.w3-round.w3-margin-top.w3-margin-bottom(type="submit") Eliminar
+            span            
+                a(href='/alunos' class="w3-button w3-light-blue w3-round w3-margin-top w3-margin-bottom" style="width:100px") Cancelar
+            span
+        
