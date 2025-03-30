@@ -1,0 +1,47 @@
+extends layout 
+
+block content 
+    .w3-card-4 
+        header.w3-container.w3-light-blue
+            h1 Entidade #{entity_id}
+
+        .w3-container 
+            br
+            a.w3-button.w3-blue(href="/") Voltar
+            br
+            br
+            ul.w3-ul.w3-card-4
+
+                li 
+                    b ID: 
+                    | #{entity_id}
+                li 
+                    b Nome: 
+                    | #{entity_nome}
+                li 
+                    b Valor total: 
+                    | #{valor}
+        h6
+
+        
+        .w3-container 
+
+            ul.w3-ul.w3-card-4
+
+                li 
+                    b Contratos:
+                li 
+                    table.w3-table-all 
+                        tr
+                            th ID 
+                            th Objeto
+                            th Data de Celebração 
+                            th Preço Contratual 
+                        each contrato in lista 
+                            tr 
+                                td
+                                    a(href="/" + contrato._id)=contrato._id
+                                td= contrato.objectoContrato 
+                                td= contrato.dataCelebracaoContrato 
+                                td= contrato.precoContratual
+

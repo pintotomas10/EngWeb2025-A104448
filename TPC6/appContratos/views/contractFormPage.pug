@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-light-blue
+            h2 Adicionar Contrato
+
+        a.w3-button.w3-blue(href="/") Voltar
+                    
+        form.w3-container(method="POST")
+            fieldset
+                legend Dados
+                label ID
+                input.w3-input.w3-round(type="number" name="_id" required title="O ID deve ser um número.")
+                label Anuncio
+                input.w3-input.w3-round(type="text" name="nAnuncio")
+                label Tipo de Procedimento
+                input.w3-input.w3-round(type="text" name="tipoprocedimento")
+                label Objeto de Contrato
+                input.w3-input.w3-round(type="text" name="objectoContrato")
+                label Data de Publicação
+                input.w3-input.w3-round(type="text" name="dataPublicacao" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="O data deve ter o seguinte formato \"dd/mm/aaaa\"")
+                label Data de Celebração do Contrato
+                input.w3-input.w3-round(type="text" name="dataCelebracaoContrato" pattern="\d{2}/\d{2}/\d{4}" title="O data deve ter o seguinte formato \"dd/mm/aaaa\"")
+                label Preço Contratual
+                input.w3-input.w3-round(type="number" name="precoContratual" title="O ID deve ser um número.")
+                label Prazo de Execução
+                input.w3-input.w3-round(type="number" name="prazoExecucao" title="O ID deve ser um número.")
+                label NIPC - Entidade Comunicante
+                input.w3-input.w3-round(type="number" name="NIPC_entidade_comunicante" title="O ID deve ser um número.")
+                label Entidade Comunicante
+                input.w3-input.w3-round(type="text" name="entidade_comunicante")
+                label Fundamentação
+                input.w3-input.w3-round(type="text" name="fundamentacao")
+            br
+            button.w3-btn.w3-blue.w3-mb-2(type="submit") Registar

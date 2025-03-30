@@ -1,0 +1,51 @@
+extends layout 
+
+block content 
+    .w3-card-4 
+        header.w3-container.w3-light-blue
+            h1 Lista de Contratos
+
+        if tipo == 1
+            header.w3-container.w3-light-blue
+                h3 Contrato "#{contrato_id}" foi adicionado!
+
+        if tipo == 2
+            header.w3-container.w3-light-blue
+                h3 Contrato "#{contrato_id}" foi editado!
+
+        if tipo == 3
+            header.w3-container.w3-light-blue
+                h3 Contrato "#{contrato_id}" foi removido!
+
+    .w3-container.w3-light-blue
+        h6
+                    
+        .w3-container
+            a.w3-btn.w3-ripple.w3-round.w3-blue(href="/registo") Adicionar Contrato
+            a.w3-btn.w3-ripple.w3-round.w3-blue.w3-right(href="/entidades") Ver Entidades
+
+
+        h6 
+
+        table.w3-table-all 
+            tr
+                th ID 
+                th Objeto
+                th Data de Celebração 
+                th Preço Contratual 
+                th NIPC Entidade Comunicante 
+                th Entidade Comunicante  
+                th Actions
+            each contrato in lista 
+                tr 
+                    td
+                        a(href="/" + contrato._id)= contrato._id
+                    td= contrato.objectoContrato 
+                    td= contrato.dataCelebracaoContrato 
+                    td= contrato.precoContratual
+                    td
+                        a(href="/entidades/" + contrato.NIPC_entidade_comunicante)= contrato.NIPC_entidade_comunicante 
+                    td= contrato.entidade_comunicante 
+                    td
+                        a.btn(style="background-color: #3498db; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none;" href="/edit/" + contrato._id) Editar
+                        a.btn(style="background-color: #e74c3c; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; margin-left: 5px;" href="/delete/" + contrato._id) Apagar
