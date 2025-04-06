@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .w3-card-4
+    .w3-container
+      h3 Livro: #{livro.title}
+      table.w3-table-all
+        each val, key in livro
+          if key !== '_id' && !(val === null || val === "" || (Array.isArray(val) && val.length === 0))
+            tr
+              td= key
+              td= val
+        if livro.coverImg
+          tr
+            td cover
+            td: img(src=livro.coverImg, width='150')
+      a.w3-button.w3-margin-top.w3-blue(href='/') Voltar
+      br
+      br

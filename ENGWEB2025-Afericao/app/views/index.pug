@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .w3-container
+    h3 Lista de Livros
+    table.w3-table-all
+      tr
+        th ID
+        th Título
+        th Autor
+        th Publicado
+        th Páginas
+      each livro in livros
+        tr
+          td
+            a(href='/' + livro._id)= livro._id
+          td= livro.title
+          td
+            each a in livro.author
+              a(href='/entidades/' + encodeURIComponent(a))= a
+              br
+          td= livro.publishDate
+          td= livro.pages
