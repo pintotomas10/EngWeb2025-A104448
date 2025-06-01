@@ -10,10 +10,10 @@
 >![Foto Perfil](https://github.com/user-attachments/assets/575cd72e-b849-4e66-a39b-5c8552c4e80e)
 
 
-Este projeto corresponde à implementação de uma aplicação web para gestão de um diário digital, no contexto da unidade curricular de Engenharia Web (2025), segundo as diretrizes definidas pelo modelo OAIS.
+Este projeto corresponde à implementação de uma aplicação web para gestão de um diário digital, no contexto da unidade curricular de Engenharia Web (2025), segundo as diretrizes definidas pelo modelo OAIS. <br>
 
-API a correr na porta 2004
-APP a correr na porta 2003
+API a correr na porta 2004 <br>
+APP a correr na porta 2003 <br>
 ---
 
 ## ✅ Funcionalidades Implementadas
