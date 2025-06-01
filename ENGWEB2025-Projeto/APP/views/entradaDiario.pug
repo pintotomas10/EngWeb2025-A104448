@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-pink
+        h2= item.titulo
+
+      .w3-container
+        p
+          strong Descrição: 
+          | #{item.descricao}
+
+        p
+          strong Classificador:
+          | #{item.classificadores.length > 0 ? item.classificadores[0] : '—'}
+
+        p
+          strong Visibilidade:
+          if item.visivel
+            span.w3-tag.w3-green Público
+          else
+            span.w3-tag.w3-grey Privado
+          form(method="POST", action=`/diary/${item._id}/toggleVisibility`)
+            input(type="hidden", name="id", value=item._id)
+            if item.visivel
+              button.w3-button.w3-red.w3-right(type="submit") Tornar Privado
+            else
+              button.w3-button.w3-green.w3-right(type="submit") Tornar Público
+
+        p
+          strong Criado em:
+          | #{new Date(item.dataCriacao).toLocaleDateString('pt-PT')}
+
+    hr
+
+    h3 Documentos associados
+    if item.documentos.length > 0
+      table.w3-table-all
+        thead
+          tr
+            th Nome
+            th Tipo MIME
+            th Última modificação
+            th Ações
+        tbody
+          each doc in item.documentos
+            tr
+              td= doc.nome
+              td= doc.mimetype
+              td= new Date(doc.modificado).toLocaleDateString('pt-PT')
+              td
+                a.w3-button.w3-small.w3-green(href=`/${doc.path}`, target="_blank") Ver
+
+
+    else
+      p Nenhum documento associado.
+    a.w3-button.w3-pink.w3-right(href=`/diary/${item._id}/uploadDocs`) Associar Documentos
+    hr
+
+    h3 Comentários
+    if item.comentarios && item.comentarios.length > 0
+      ul.w3-ul
+        each c in item.comentarios
+          li
+            span= new Date(c.data).toLocaleDateString('pt-PT') + ': '
+            | #{c.texto}
+    else
+      p Sem comentários.
+    form(method="POST", action=`/diary/${item._id}/comentarios`)
+      textarea.w3-input(name="texto" required placeholder="Escreve um comentário...")
+      button.w3-button.w3-pink.w3-right(type="submit") Adicionar Comentário
+
+
+    a.w3-button.w3-margin-top.w3-pink(href="/diary") Voltar à lista
+    br
+    br

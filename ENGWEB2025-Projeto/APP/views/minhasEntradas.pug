@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-pink
+        .w3-row
+            .w3-col.m9
+                h1 As Minhas Entradas do Diário Digital
+            .w3-col.m3(style="text-align: right; padding-top: 16px;")
+                form(method="POST", action="/users/logout")
+                    button.w3-button.w3-yellow(type="submit") Logout
+
+    .w3-container
+      table.w3-table-all
+        thead
+          tr
+            th Título
+            th Descrição
+            th Classificador
+            th Visibilidade
+            th Data
+        tbody
+          each item in diaryEntries
+            tr
+              td: a(href=`/diary/${item._id}`)= item.titulo
+              td= item.descricao
+              td= item.classificadores.length > 0 ? item.classificadores[0] : '—'
+              td= item.visivel ? 'Público' : 'Privado'
+              td= new Date(item.dataCriacao).toLocaleDateString('pt-PT')
+    
+  .w3-container.w3-margin-top
+    a.w3-button.w3-pink(href="/diary") Voltar ao Diário

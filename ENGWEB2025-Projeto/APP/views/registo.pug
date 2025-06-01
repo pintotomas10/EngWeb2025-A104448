@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .w3-container.w3-padding
+    .w3-card-4
+      .w3-container.w3-pink
+        h2 Registo
+
+      form.w3-container(method="POST", action="/users/register")
+        p
+          label(for="uname") Username
+          input.w3-input(type="text", name="uname", required, placeholder="Username")
+
+        p
+          label(for="fname") Nome completo
+          input.w3-input(type="text", name="fname", required, placeholder="Jane Doe")
+
+        p
+          label(for="password") Password
+          input.w3-input(type="password", name="password", required)
+
+        p
+          button.w3-button.w3-blue(type="submit") Criar Conta
+          a.w3-button.w3-green.w3-margin(href="/users/login") Fazer Login
+          a.w3-button.w3-light-grey.w3-margin(href="/") Voltar à Página Inicial

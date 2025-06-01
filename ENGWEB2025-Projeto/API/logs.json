@@ -1,0 +1,80 @@
+[
+  {
+    "timestamp": "2025-06-01T17:53:57.070Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c92bd469ff8f1e4c5dfde"
+  },
+  {
+    "timestamp": "2025-06-01T17:54:02.681Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c92bd469ff8f1e4c5dfde"
+  },
+  {
+    "timestamp": "2025-06-01T17:54:32.895Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c92bd469ff8f1e4c5dfde"
+  },
+  {
+    "timestamp": "2025-06-01T18:05:20.359Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c92bd469ff8f1e4c5dfde"
+  },
+  {
+    "timestamp": "2025-06-01T18:14:04.511Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c92bd469ff8f1e4c5dfde"
+  },
+  {
+    "timestamp": "2025-06-01T18:14:22.811Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c92bd469ff8f1e4c5dfde"
+  },
+  {
+    "timestamp": "2025-06-01T18:15:41.737Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c98cbc32331443cfd3af8"
+  },
+  {
+    "timestamp": "2025-06-01T18:16:05.830Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c98cbc32331443cfd3af8"
+  },
+  {
+    "timestamp": "2025-06-01T18:16:49.789Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c98cbc32331443cfd3af8"
+  },
+  {
+    "timestamp": "2025-06-01T18:16:54.523Z",
+    "user": "a104448",
+    "action": "view",
+    "itemId": "683c98cbc32331443cfd3af8"
+  },
+  {
+    "timestamp": "2025-06-01T22:13:34.377Z",
+    "user": "a104448",
+    "action": "download",
+    "itemId": "683caa18b8791948324cddbd"
+  },
+  {
+    "timestamp": "2025-06-01T22:16:28.270Z",
+    "user": "a104448",
+    "action": "download",
+    "itemId": "683caa18b8791948324cddbd"
+  },
+  {
+    "timestamp": "2025-06-01T22:26:26.516Z",
+    "user": "a104448",
+    "action": "download",
+    "itemId": "683caabe2862e8248dac3fbf"
+  }
+]

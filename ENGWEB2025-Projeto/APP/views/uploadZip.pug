@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .w3-container.w3-margin-top
+    .w3-card-4
+      .w3-container.w3-pink
+        h2 Upload ZIP
+
+      form(method="POST", action="/diary/uploadZip", enctype="multipart/form-data", class="w3-container")
+        p
+          label(for="file") Escolhe o ficheiro ZIP:
+          input.w3-input(type="file", name="file", accept=".zip", required)
+        
+        p
+          button.w3-button.w3-green(type="submit") Enviar ZIP
+          a.w3-button.w3-light-grey.w3-margin-left(href="/diary") Voltar

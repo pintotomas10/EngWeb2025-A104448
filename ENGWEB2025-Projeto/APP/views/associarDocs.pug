@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .w3-container
+    header.w3-container.w3-pink
+      h1 Associar Documentos a Entrada do Diário
+
+    form(method="POST", action=`/diary/${id}/uploadDocs`, enctype="multipart/form-data")
+      br
+      br
+      input(type="file", name="docs", multiple required)
+      br
+      br
+      button.w3-button.w3-pink(type="submit") Enviar Documentos
+      a.w3-button.w3-grey.w3-margin-left(href=`/diary/${id}`) Cancelar

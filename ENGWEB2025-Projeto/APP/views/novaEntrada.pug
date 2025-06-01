@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .w3-container.w3-padding
+    .w3-card-4
+      .w3-container.w3-pink
+        h2 Nova Entrada do Diário
+
+      form(method="POST", action="/diary/create" class="w3-container")
+        p
+          label(for="title") Título:
+          input.w3-input(type="text", name="title", required)
+
+        p
+          label(for="descricao") Descrição:
+          input.w3-input(type="text", name="descricao", required)
+
+        p
+          label(for="tipo") Classificador:
+          select.w3-select(name="tipo", required)
+            option(value="") -- Escolher --
+            option(value="foto") Foto
+            option(value="viagem") Viagem
+            option(value="evento") Evento
+            option(value="formacao") Formação
+            option(value="texto") Texto
+            option(value="trabalho") Trabalho
+            option(value="audio") Áudio
+            option(value="video") Vídeo
+
+        p
+          label
+            input(type="checkbox", name="visivel")
+            | Tornar esta entrada pública
+
+        p
+          button.w3-button.w3-blue(type="submit") Submeter
+          a.w3-button.w3-light-grey.w3-margin-left(href="/diary") Voltar
